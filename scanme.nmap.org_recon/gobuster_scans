@@ -1,0 +1,23 @@
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://scanme.nmap.org
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/dirb/wordlists/big.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+[2K/.htaccess            (Status: 403) [Size: 291]
+[2K/.htpasswd            (Status: 403) [Size: 291]
+[2K/.svn                 (Status: 301) [Size: 316] [--> http://scanme.nmap.org/.svn/]
+
+[!] Keyboard interrupt detected, terminating.
+
+===============================================================
+Finished
+===============================================================
