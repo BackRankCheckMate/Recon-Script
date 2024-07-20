@@ -1,6 +1,4 @@
 #!/bin/bash
-TODAY=$(date)
-echo "This scan was created on $TODAY"
 DOMAIN=$1
 DIRECTORY=${DOMAIN}_recon
 echo "Creating directory $DIRECTORY"
@@ -40,3 +38,13 @@ case $2 in
 		crt_scan
 		;;
 esac
+
+echo "Generating recon report from output files..."
+TODAY=$(date)
+echo "This scan was created on $TODAY" > $DIRECTORY/report
+echo "Results for nmap:" >> $DIRECTORY/report
+grep -E "^\s*\S+\s+\S+\s+\S+\s*$" $DIRECTORY/nmap >> $DIRECTORY/report
+echo "Results of Gobuster:" >> $DIRECTORY/report
+cat $DIRECTORY/gobuster_scans >> $DIRECTORY/report
+echo "Results for crt.sh:" >> $DIRECTORY/report
+jq -r ".[] | .name_value" $DIRECTORY/crt >> $DIRECTORY/report
